@@ -1,0 +1,2 @@
+- `DynamicWallpaper_Win`：需要依赖目标操作系统上的 `net8.0-windows` 框架。占用空间小。
+- `DynamicWallpaper_Win_Single`：可以独立运行，不依赖目标操作系统上的任何环境框架。但是占用空间大。

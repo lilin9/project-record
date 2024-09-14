@@ -1,0 +1,44 @@
+﻿<dynamicWallpaper:MainWindowNotifyIcon x:Class="DynamicWallpaper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DynamicWallpaper"
+        xmlns:dynamicWallpaper="clr-namespace:DynamicWallpaper"
+        mc:Ignorable="d"
+        Title="DynamicWallpaper" Icon="pack://application:,,/Resources/logo.ico" MaxHeight="450" MaxWidth="650" MinHeight="450" MinWidth="650"
+        Closing="MainWindow_Closing">
+
+    <dynamicWallpaper:MainWindowNotifyIcon.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="25"></Setter>
+            <Setter Property="Width" Value="70"></Setter>
+        </Style>
+    </dynamicWallpaper:MainWindowNotifyIcon.Resources>
+
+    <Grid>
+        <Grid Margin="100">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Orientation="Vertical" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Border BorderBrush="Gray" BorderThickness="0.5" Padding="5"  Width="350" Height="30">
+                        <TextBlock Drop="TextBlock_Drop" PreviewDragOver="TextBlock_PreviewDragOver" x:Name="textBlock" AllowDrop="True" Text="请输入目标URL或者拖拽壁纸到输入框内" />
+                    </Border>
+                    <Button Click="SelectedFileBtn_Click" Content="选择文件" Height="30" Width="50" FontSize="11" BorderThickness="0 0.7 0.7 0.7" />
+                </StackPanel>
+            </StackPanel>
+
+            <DockPanel Grid.Row="1" LastChildFill="False">
+                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Margin="22 0 0 0">
+                    <CheckBox Click="CheckBox_Click" x:Name="checkBox"/>
+                    <TextBlock Text="开机自启"/>
+                </StackPanel>
+                <Button VerticalAlignment="Top" DockPanel.Dock="Right" Content="确定" Click="SureBtn_Click" Margin="0 0 22 0"/>
+            </DockPanel>
+        </Grid>
+    </Grid>
+</dynamicWallpaper:MainWindowNotifyIcon>
