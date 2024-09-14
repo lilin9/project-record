@@ -1,0 +1,53 @@
+<html><head>
+    <meta charset="UTF-8">
+    <meta id="token" content="OWY0OTgwYjJlNGNiNWRlYjE1MzE1Njc3ZWY0OTg3MzE=">
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body {background: black;}
+        canvas {display:block;width: 100%;height: 100%;}
+
+    </style>
+</head>
+<body>
+
+<canvas id="c" height="638" width="1183"></canvas>
+
+<script async="" src="https://www.google-analytics.com/analytics.js"></script><script>
+    var c = document.getElementById("c");
+    var ctx = c.getContext("2d");
+    c.height = window.innerHeight;
+    c.width = window.innerWidth;
+    var content = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    content = content.split("");
+
+    var font_size = 10;
+    var columns = c.width/font_size;
+    var drops = [];
+    for(var x = 0; x < columns; x++)
+        drops[x] = 1;
+    function draw()
+    {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, c.width, c.height);
+
+        ctx.fillStyle = "#0F0";
+        ctx.font = font_size + "px arial";
+        for(var i = 0; i < drops.length; i++)
+        {
+            var text = content[Math.floor(Math.random()*content.length)];
+            ctx.fillText(text, i*font_size, drops[i]*font_size);
+
+            if(drops[i]*font_size > c.height && Math.random() > 0.975)
+                drops[i] = 0;
+            drops[i]++;
+        }
+    }
+    setInterval(draw, 33);
+</script>
+
+<div id="__fanyixia_content" style="display: none;"><div data-reactroot="" class="__icon" title="点击翻译"><img src="moz-extension://94846669-af0b-4a1f-821c-b49d3bfeefef/static/media/icon.svg" alt="icon" width="16" height="16"></div></div></body></html>
